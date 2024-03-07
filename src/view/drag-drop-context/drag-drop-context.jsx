@@ -18,6 +18,7 @@ type Props = {|
   // Used for strict content security policies
   // See our [content security policy guide](/docs/guides/content-security-policy.md)
   nonce?: string,
+  contextId?: string,
   // See our [sensor api](/docs/sensors/sensor-api.md)
   sensors?: Sensor[],
   enableDefaultSensors?: ?boolean,
@@ -41,7 +42,7 @@ export default function DragDropContext(props: Props) {
       {(setCallbacks) => (
         <App
           nonce={props.nonce}
-          contextId={contextId}
+          contextId={props.contextId || contextId}
           setCallbacks={setCallbacks}
           dragHandleUsageInstructions={dragHandleUsageInstructions}
           enableDefaultSensors={props.enableDefaultSensors}
